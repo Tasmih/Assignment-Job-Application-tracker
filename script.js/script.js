@@ -1,6 +1,5 @@
-
-
-
+let interviewList = [];
+let rejectList = [];
 
 let total = document.getElementById('total');
 let interviewCount = document.getElementById("interviewCount");
@@ -85,7 +84,10 @@ mainContainer.addEventListener('click',function(event){
   if (!companyNameExist){
   interviewList.push(cardInfo)
   }
+
+  rejectList = rejectList.filter(item => item.companyName != cardInfo.companyName)
   calculateCount()
+
   renderInterview ()   
     } else if(event.target.classList.contains('reject')){
   const parenNode = event.target.parentNode.parentNode;
@@ -106,13 +108,14 @@ mainContainer.addEventListener('click',function(event){
     notes ,
   }
 
-  const companyNameExist = rejectList.find(
-    item => item.companyName == cardInfo.companyName
-  )
+  const companyNameExist = rejectList.find(item => item.companyName == cardInfo.companyName )
 
   if (!companyNameExist){
     rejectList.push(cardInfo)
   }
+interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
+
+
 
   calculateCount()
   renderReject()   
