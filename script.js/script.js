@@ -59,3 +59,38 @@ function toggleStyle(id){
 
 
 }
+mainContainer.addEventListener('click',function(event){
+    console.log(event.target.parentNode.parentNode);
+
+ // console.log(event.target.classList.contains('interview'));
+    if(event.target.classList.contains('interview')){
+     const parenNode = event.target.parentNode.parentNode;
+  console.log(parenNode);
+  const companyName = parenNode.querySelector('.companyName').innerText;
+  const jobName = parenNode.querySelector('.jobName').innerText;
+  const jobCriteria = parenNode.querySelector('.jobCriteria').innerText;
+  const statusBadge = parenNode.querySelector('.statusBadge').innerText;
+  const notes = parenNode.querySelector('.notes').innerText;
+   parenNode.querySelector('.statusBadge').innerText = 'Interview'
+
+
+  const cardInfo ={
+    companyName,
+    jobName,
+    jobCriteria,
+    statusBadge:'Interview',
+    notes ,
+  }
+  
+  const companyNameExist =interviewList.find(item=> item.companyName == cardInfo.companyName)
+ 
+  if (!companyNameExist){
+  interviewList.push(cardInfo)
+  }
+  calculateCount();
+  renderInterview ()   
+    }
+})
+
+
+
