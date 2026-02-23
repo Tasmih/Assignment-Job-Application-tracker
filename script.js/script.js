@@ -57,78 +57,75 @@ function toggleStyle(id){
     }
 }
 
-mainContainer.addEventListener('click',function(event){
+mainContainer.addEventListener('click', function(event){
+   
+    const parenNode = event.target.parentNode.parentNode; 
+    if(!parenNode) return;
 
- if(event.target.classList.contains('interview')){
- const parenNode = event.target.parentNode.parentNode;
-  console.log(parenNode);
-  const companyName = parenNode.querySelector('.companyName').innerText;
-  const jobName = parenNode.querySelector('.jobName').innerText;
-  const jobCriteria = parenNode.querySelector('.jobCriteria').innerText;
-  const statusBadge = parenNode.querySelector('.statusBadge').innerText;
-  const notes = parenNode.querySelector('.notes').innerText;
-   parenNode.querySelector('.statusBadge').innerText = 'Interview'
+    const companyName = parenNode.querySelector('.companyName').innerText;
+    const jobName = parenNode.querySelector('.jobName').innerText;
+    const jobCriteria = parenNode.querySelector('.jobCriteria').innerText;
+    const notes = parenNode.querySelector('.notes').innerText;
 
+    
+    if(event.target.classList.contains('interview')){
+        // remove from rejectList
+        rejectList = rejectList.filter(item => item.companyName !== companyName);
 
-  const cardInfo ={
-    companyName,
-    jobName,
-    jobCriteria,
-    statusBadge:'Interview',
-    notes ,
-  }
-  
-  const companyNameExist =interviewList.find(item=> item.companyName == cardInfo.companyName)
+        // push if missing in interviewList
+        if(!interviewList.find(item => item.companyName === companyName)){
+            interviewList.push({
+                companyName, jobName, jobCriteria, notes, statusBadge:'Interview'
+            });
+        }
 
- 
-  if (!companyNameExist){
-  interviewList.push(cardInfo)
-  }
+        parenNode.querySelector('.statusBadge').innerText = 'Interview';
+        calculateCount();
+        renderInterview();
+    } 
+    // Reject button click
+    else if(event.target.classList.contains('reject')){
+      
+        interviewList = interviewList.filter(item => item.companyName !== companyName);
 
-  rejectList = rejectList.filter(item => item.companyName != cardInfo.companyName)
-  calculateCount()
+        // push if missing in rejectList
+        if(!rejectList.find(item => item.companyName === companyName)){
+            rejectList.push({
+                companyName, jobName, jobCriteria, notes, statusBadge:'Rejected'
+            });
+        }
 
-  renderInterview ()   
-    } else if(event.target.classList.contains('reject')){
-  const parenNode = event.target.parentNode.parentNode;
+        parenNode.querySelector('.statusBadge').innerText = 'Rejected';
+        calculateCount();
+        renderReject();
+    }
+    // Delete button click
+    else if(event.target.classList.contains('delete-btn') || event.target.parentNode.classList.contains('delete-btn')){
+        const cardNode = event.target.parentNode.parentNode; 
+        const companyNameDel = cardNode.querySelector('.companyName').innerText;
 
-  const companyName = parenNode.querySelector('.companyName').innerText;
-  const jobName = parenNode.querySelector('.jobName').innerText;
-  const jobCriteria = parenNode.querySelector('.jobCriteria').innerText;
-  const statusBadge = parenNode.querySelector('.statusBadge').innerText;
-  const notes = parenNode.querySelector('.notes').innerText;
+        // remove from lists
+        interviewList = interviewList.filter(item => item.companyName !== companyNameDel);
+        rejectList = rejectList.filter(item => item.companyName !== companyNameDel);
 
-  parenNode.querySelector('.statusBadge').innerText = 'Rejected'
+        
+        cardNode.remove();
 
-  const cardInfo ={
-    companyName,
-    jobName,
-    jobCriteria,
-    statusBadge:'Rejected',
-    notes ,
-  }
-
-  const companyNameExist = rejectList.find(item => item.companyName == cardInfo.companyName )
-
-  if (!companyNameExist){
-    rejectList.push(cardInfo)
-  }
-interviewList = interviewList.filter(item => item.companyName != cardInfo.companyName)
-
-
-
-  calculateCount()
-  renderReject()   
- }
-
-})
-
-
+        
+        calculateCount();
+    }
+});
 
 
 function renderInterview (){
     filterSection.innerHTML = ''
-
+    // if interview is empty , then show no job message
+    if (interviewList.length === 0){
+        document.getElementById('no-jobs').classList.remove('hidden');
+        return;
+    } else {
+        document.getElementById('no-jobs').classList.add('hidden');
+    }
 
     for(let interview of interviewList){
         console.log(interview);
@@ -168,6 +165,13 @@ function renderInterview (){
 }
 function renderReject (){
     filterSection.innerHTML = ''
+    // if reject is empty  then show no job message
+    if(rejectList.length === 0){
+        document.getElementById('no-jobs').classList.remove('hidden');
+        return;
+    } else {
+        document.getElementById('no-jobs').classList.add('hidden');
+    }
 
 
     for(let reject of rejectList){
