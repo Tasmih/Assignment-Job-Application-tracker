@@ -26,7 +26,7 @@
 </style>
 
 </head>
-<body class="bg-slate-50">
+<body class="bg-[#f8fafc]">
     <section id="header-section" class="w-[80%] mx-auto">
         <div class="pt-[60px]">
             <h1 class="text-2xl sm:text-center md:text-left font-bold text-black">Job Application Tracker</h1>
@@ -38,11 +38,11 @@
                 </div>
                 <div class="bg-white p-5 w-[370px] rounded-xl ">
                     <p class="text-gray-900">Interview</p>
-                    <p id="interviewCount" class="text-green-700">0</p>
+                    <p id="interview" class="text-green-700">0</p>
                 </div>
                 <div class="bg-white p-5 w-[370px] rounded-xl ">
                     <p class="text-gray-900">Rejected</p>
-                    <p id="rejectCount" class="text-red-700">0</p>
+                    <p id="reject" class="text-red-700">0</p>
                 </div>
             </div>
               
@@ -54,157 +54,120 @@
 
      
      
-     <!-- Main Section -->
-    <main id="main-section" class="w-[80%] mx-auto pb-[60px]">
+     <main id="main-section" class=" main-section w-[80%] mx-auto pb-[60px]">
+       <div id="summary" class="">
+          <div class="flex justify-between pb-6">
+            <p>Available Jobs</p>
+            <p>8 Jobs</p>
+          </div>
+          <div class="flex sm:mx-auto gap-2 pb-4">
+            <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="px-3 py-2 bg-[#3b82f6] text-white rounded-md w-[80px]">All</button>
+            <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="px-3 py-2 bg-white text-[#64748b] rounded-md w-[80px]">Interview</button>
+            <button onclick="toggleStyle('reject-filter-btn')" id="reject-filter-btn" class="px-3 py-2 bg-[#ffffff] text-[#64748b] rounded-md w-[80px]">Rejected</button> </div>
+            
+       </div>
 
-        <!-- Summary / Filters -->
-        <div id="summary" class="">
-            <div class="flex justify-between pb-6">
-                <p>Available Jobs</p>
-                <p id="available-count">8 Jobs</p>
+       <!--filtered card-->
+       <section id="filtered-section"  class="hidden">
+    </section>
+       
+       <!--No jobs-->
+       <div id="no-jobs" class=" flex flex-col items-center bg-white rounded-md mb-4 py-[110px] space-y-4">
+        <img src="./images/job.png" alt="">
+        <div class="flex flex-col items-center"> <P class="text-[#002c56] font-bold">No jobs available</P>
+        <p class="text-[#64748b]">Check back soon for new job opportunities</p></div>
+       
+       </div>
+       <!--cards-->
+       <div id="allCards" class="space-y-2">
+        
+        <!--card-1-->
+        <div class=" jobCard bg-[#ffffff] p-6 md:flex rounded-md  ">
+            <div class="left space-y-2">
+                 
+            <div>
+                <p class=" companyName text-[#002c5c] font-bold">Mobile First Corp</p>
+                <p class="jobName  text-[#64748b]">React Native Developer</p>
             </div>
-
-            <div class="flex sm:mx-auto gap-2 pb-4">
-                <button onclick="toggleStyle('all-filter-btn')" id="all-filter-btn" class="px-3 py-2 bg-blue-500 text-white rounded-md w-[80px]">All</button>
-                <button onclick="toggleStyle('interview-filter-btn')" id="interview-filter-btn" class="px-3 py-2 bg-white text-slate-500 rounded-md w-[80px]">Interview</button>
-                <button onclick="toggleStyle('reject-filter-btn')" id="reject-filter-btn" class="px-3 py-2 bg-white text-slate-500 rounded-md w-[80px]">Rejected</button>
-            </div>
-
-            <!-- Filtered Cards Section -->
-            <section id="filtered-section" class="hidden"></section>
+           
+        
+        <div>
+            <p class=" jobCriteria text-[#64748b]">Remote • Full-time • $130,000 - $175,000</p>
         </div>
+         
+        <button class=" statusBadge bg-[#eef4ff] text-[64748b] py-2 px-3 rounded-md">Not Applicable</button>
 
-        <!-- No Jobs Section -->
-        <div id="no-jobs" class="hidden flex flex-col items-center bg-white rounded-md mb-4 py-[110px] space-y-4">
-            <img src="./image/jobs.png" alt="">
-            <div class="flex flex-col items-center">
-                <p class="text-sky-950 font-bold">No jobs available</p>
-                <p class="text-slate-500">Check back soon for new job opportunities</p>
-            </div>
-        </div>
+         <p class=" notes text-[#323b49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 
-        <!-- All Cards Section -->
-        <div id="allCards" class="space-y-6">
-
-            <!-- Job Card 1-->
-            <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
-
-                <!-- Left Side -->
-                <div class="left flex-1 space-y-3">
-                    <div>
-                        <p class="companyName text-blue-950 font-bold">Mobile First Corp</p>
-                        <p class="jobName text-slate-500">React Native Developer</p>
-                    </div>
-
-                    <p class="jobCriteria text-slate-500">Remote . Full-time . $130,000 - $175,000</p>
-
-                    <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-                        NOT APPLIED
-                    </button>
-
-                    <p class="notes text-slate-500">
-                        Build cross-platform mobile applications using React Native.
-                    </p>
-
-                    <div class="flex gap-3 mt-4">
-                        <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                            Interview
-                        </button>
-                        <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                            Rejected
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class=" right ml-4">
-                    <button id="delete-btn" >
-                        <img src="./image/btn-delete.png" alt="">
-                    </button>
-                </div>
-
-            </div>
+         <div class="flex gap-2">
+            <button class="interview  bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">Rejected</button>  
+         </div></div>
+            <div class="right"> <button id="delete-btn"> <img src="./images/delete-btn.png" alt=""></button></div>
+           
+       
+       </div>
             <!-- Job Card 2-->
-            <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
-
-                <!-- Left Side -->
-                <div class="left flex-1 space-y-3">
-                    <div>
-                        <p class="companyName text-blue-950 font-bold">WebFlow Agency</p>
-                        <p class="jobName text-slate-500">Web Designer & Developer</p>
-                    </div>
-
-                    <p class="jobCriteria text-slate-500">Los Angeles, CA• Part-time •$80,000 - $120,000</p>
-
-                    <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-                        NOT APPLIED
-                    </button>
-
-                    <p class="notes text-slate-500">
-                        Create stunning web experiences for high-profile clients. Must have portfolio and experience with modern web design trends.
-                    </p>
-
-                    <div class="flex gap-3 mt-4">
-                        <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                            Interview
-                        </button>
-                        <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                            Rejected
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class="right ml-4">
-                    <button id="delete-btn">
-                        <img src="./image/btn-delete.png" alt="">
-                    </button>
-                </div>
-
+             <!--card-2-->
+       
+          <div class=" jobCard bg-[#ffffff] p-6 md:flex rounded-md  ">
+            <div class="left space-y-2">
+                 
+            <div>
+                <p class=" companyName text-[#002c5c] font-bold">WebFlow Agency</p>
+                <p class="jobName  text-[#64748b]">React Native Developer</p>
             </div>
+           
+        
+        <div>
+            <p class=" jobCriteria text-[#64748b]">Remote • Full-time • $130,000 - $175,000</p>
+        </div>
+         
+        <button class=" statusBadge bg-[#eef4ff] text-[64748b] py-2 px-3 rounded-md">Not Applicable</button>
+
+         <p class=" notes text-[#323b49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+
+         <div class="flex gap-2">
+            <button class="interview  bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">Rejected</button>  
+         </div></div>
+            <div class="right">
+                 <button id="delete-btn"> <img src="./images/delete-btn.png" alt=""></button>
+                </div>
+           
+       
+       </div>
             <!--  Card 3-->
-            <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
-
-                <!-- Left Side -->
-                <div class="left flex-1 space-y-3">
-                    <div>
-                        <p class="companyName text-blue-950 font-bold">DataViz Solutions</p>
-                        <p class="jobName text-slate-500">Data Visualization Specialist</p>
-                    </div>
-
-                   <p class="jobCriteria text-slate-500">Boston, MA •Full-time •$125,000 - $165,000</p>
-
-                    <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-                        NOT APPLIED
-                    </button>
-
-                    <p class="notes text-slate-500">
-                       Transform complex data into compelling visualizations. Required skills: D3.js, React, and strong analytical thinking.
-                    </p>
-
-                    <div class="flex gap-3 mt-4">
-                        <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                            Interview
-                        </button>
-                        <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                            Rejected
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class="right ml-4">
-                    <button id="delete-btn">
-                        <img src="./image/btn-delete.png" alt="">
-                    </button>
-                </div>
-
+             <div class=" jobCard bg-[#ffffff] p-6 md:flex rounded-md  ">
+            <div class="left space-y-2">
+                 
+            <div>
+                <p class=" companyName text-[#002c5c] font-bold">DataViz Solutions</p>
+                <p class="jobName  text-[#64748b]">React Native Developer</p>
             </div>
+           
+        
+        <div>
+            <p class=" jobCriteria text-[#64748b]">Remote • Full-time • $130,000 - $175,000</p>
+        </div>
+         
+        <button class=" statusBadge bg-[#eef4ff] text-[64748b] py-2 px-3 rounded-md">Not Applicable</button>
+
+         <p class=" notes text-[#323b49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+
+         <div class="flex gap-2">
+            <button class="interview  bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">Rejected</button>  
+         </div></div>
+            <div class="right"> <button id="delete-btn"> <img src="./images/delete-btn.png" alt=""></button></div>
+           
+       
+       </div>
             <!--  Card 4-->
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="left flex-1 space-y-3">
+                <div class="left  space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">CloudFirst Inc</p>
                         <p class="jobName text-slate-500">Backend Developer</p>
@@ -232,7 +195,7 @@
 
                 <!-- Right Side -->
                 <div class="right ml-4">
-                    <button id="delete-btn">
+                    <button class="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -242,7 +205,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="left flex-1 space-y-3">
+                <div class="left space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">Innovation Labs</p>
                         <p class="jobName text-slate-500">UI/UX Engineer</p>
@@ -280,7 +243,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="right flex-1 space-y-3">
+                <div class="right  space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">MegaCorp Solutions</p>
                         <p class="jobName text-slate-500">JavaScript Developer</p>
@@ -308,7 +271,7 @@
 
                 <!-- Right Side -->
                 <div class="left ml-4">
-                    <button id="delete-btn">
+                    <button class="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -318,7 +281,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="left flex-1 space-y-3">
+                <div class="left  space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">StartupXYZ</p>
                         <p class="jobName text-slate-500">Full Stack Engineer</p>
@@ -346,7 +309,7 @@
 
                 <!-- Right Side -->
                 <div class="right ml-4">
-                    <button id="delete-btn">
+                    <button class="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -356,7 +319,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="left flex-1 space-y-3">
+                <div class="left space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">TechCorp Industries</p>
                         <p class="jobName text-slate-500">Senior Frontend Developer</p>
@@ -384,7 +347,7 @@
 
                 <!-- Right Side -->
                 <div class="right ml-4">
-                    <button id="delete-btn">
+                    <button class="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>

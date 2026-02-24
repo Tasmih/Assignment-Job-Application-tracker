@@ -4,8 +4,8 @@ let currentStatus = 'all'
 
 
 let total = document.getElementById('total');
-let interviewCount = document.getElementById("interviewCount");
-let rejectCount = document.getElementById("rejectCount");
+let interviewCount = document.getElementById("interview");
+let rejectCount = document.getElementById("reject");
 
 //get all button
 const allFilterBtn = document.getElementById('all-filter-btn')
@@ -14,7 +14,7 @@ const rejectFilterBtn = document.getElementById('reject-filter-btn')
 
 
 const allCardSection = document.getElementById('allCards');
-const mainContainer2 = document.querySelector('main');
+const mainContainer2 = document.getElementsById('main-section')[0];
 const filterSection = document.getElementById('filtered-section');
 
 
@@ -25,9 +25,9 @@ function calculateCount() {
     rejectCount.innerText = rejectList.length
 
 }
-calculateCount()
+calculateCount();
 
-
+//  button filter
 function toggleStyle(id) {
 
     allFilterBtn.classList.remove('bg-blue-500', 'text-white')
@@ -50,6 +50,7 @@ function toggleStyle(id) {
     if (id == 'all-filter-btn') {
         allCardSection.classList.remove('hidden')
         filterSection.classList.add('hidden')
+        document.getElementById('no-jobs').classList.add('hidden');
 
     }
     else if (id == 'interview-filter-btn') {
@@ -71,7 +72,7 @@ mainContainer2.addEventListener('click', function(event){
 
    if(event.target.classList.contains('interview')){
 
-      const parenNode = event.target.parentNode.parentNode
+      const parenNode = event.target.closest('.jobCard')
 
       const companyName = parenNode.querySelector('.companyName').textContent
       const jobName = parenNode.querySelector('.jobName').textContent
@@ -104,7 +105,7 @@ mainContainer2.addEventListener('click', function(event){
 
    else if(event.target.classList.contains('reject')){
 
-      const parenNode = event.target.parentNode.parentNode
+      const parenNode = event.target.closest('.jobCard')
 
       const companyName = parenNode.querySelector('.companyName').textContent
       const jobName = parenNode.querySelector('.jobName').textContent
@@ -132,9 +133,9 @@ mainContainer2.addEventListener('click', function(event){
          rejectList.push(cardInfo)
       }
 
-      if(currentStatus == "rejectFilterBtn"){
-         renderReject()
-      }
+      if(currentStatus == "reject-filter-btn")
+         
+      
 
       calculateCount()
       renderReject()
