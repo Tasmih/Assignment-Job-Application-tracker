@@ -261,9 +261,19 @@ document.addEventListener("click", function(event){
       console.log("Delete button detected");
 
       const card = deleteBtn.closest(".jobCard");
-      console.log("Card found:", card);
+    const companyName = card.querySelector(".companyName").textContent.trim();
 
-      card.style.display = "none";
-   }
+    
+    interviewList = interviewList.filter(j => j.companyName !== companyName);
+    rejectList = rejectList.filter(j => j.companyName !== companyName);
+
+    card.remove(); 
+    calculateCount();
+    updateJobCount();
+
+  
+    if(currentStatus === 'interview-filter-btn') renderInterview();
+    else if(currentStatus === 'reject-filter-btn') renderReject();
+}
 
 });
