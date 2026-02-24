@@ -18,7 +18,7 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     *{
-         font-family: "Outfit", sans-serif;
+          font-family: "Geist", sans-serif;
     }
     .job-card:hover {
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
@@ -55,7 +55,7 @@
      
      
      <!-- Main Section -->
-    <main class="w-[80%] mx-auto pb-[60px]">
+    <main id="main-section" class="w-[80%] mx-auto pb-[60px]">
 
         <!-- Summary / Filters -->
         <div id="summary" class="">
@@ -117,8 +117,8 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="ml-4">
-                    <button class="delete-btn">
+                <div class=" right ml-4">
+                    <button id="delete-btn" >
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -128,7 +128,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="flex-1 space-y-3">
+                <div class="left flex-1 space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">WebFlow Agency</p>
                         <p class="jobName text-slate-500">Web Designer & Developer</p>
@@ -155,8 +155,8 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="ml-4">
-                    <button class="delete-btn">
+                <div class="right ml-4">
+                    <button id="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -166,7 +166,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="flex-1 space-y-3">
+                <div class="left flex-1 space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">DataViz Solutions</p>
                         <p class="jobName text-slate-500">Data Visualization Specialist</p>
@@ -193,8 +193,8 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="ml-4">
-                    <button class="delete-btn">
+                <div class="right ml-4">
+                    <button id="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -204,7 +204,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="flex-1 space-y-3">
+                <div class="left flex-1 space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">CloudFirst Inc</p>
                         <p class="jobName text-slate-500">Backend Developer</p>
@@ -231,8 +231,8 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="ml-4">
-                    <button class="delete-btn">
+                <div class="right ml-4">
+                    <button id="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -242,7 +242,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="flex-1 space-y-3">
+                <div class="left flex-1 space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">Innovation Labs</p>
                         <p class="jobName text-slate-500">UI/UX Engineer</p>
@@ -269,8 +269,8 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="ml-4">
-                    <button class="delete-btn">
+                <div class="right ml-4">
+                    <button id="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -280,7 +280,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="flex-1 space-y-3">
+                <div class="right flex-1 space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">MegaCorp Solutions</p>
                         <p class="jobName text-slate-500">JavaScript Developer</p>
@@ -307,8 +307,8 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="ml-4">
-                    <button class="delete-btn">
+                <div class="left ml-4">
+                    <button id="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -318,7 +318,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="flex-1 space-y-3">
+                <div class="left flex-1 space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">StartupXYZ</p>
                         <p class="jobName text-slate-500">Full Stack Engineer</p>
@@ -345,8 +345,8 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="ml-4">
-                    <button class="delete-btn">
+                <div class="right ml-4">
+                    <button id="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
@@ -356,7 +356,7 @@
             <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
 
                 <!-- Left Side -->
-                <div class="flex-1 space-y-3">
+                <div class="left flex-1 space-y-3">
                     <div>
                         <p class="companyName text-blue-950 font-bold">TechCorp Industries</p>
                         <p class="jobName text-slate-500">Senior Frontend Developer</p>
@@ -383,8 +383,8 @@
                 </div>
 
                 <!-- Right Side -->
-                <div class="ml-4">
-                    <button class="delete-btn">
+                <div class="right ml-4">
+                    <button id="delete-btn">
                         <img src="./image/btn-delete.png" alt="">
                     </button>
                 </div>
