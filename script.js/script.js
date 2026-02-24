@@ -2,68 +2,69 @@ let interviewList = [];
 let rejectList = [];
 let currentStatus = 'all'
 
-
 let total = document.getElementById('total');
 let interviewCount = document.getElementById("interview");
 let rejectCount = document.getElementById("reject");
 
-//get all button
-const allFilterBtn = document.getElementById('all-filter-btn')
-const interviewFilterBtn = document.getElementById('interview-filter-btn')
-const rejectFilterBtn = document.getElementById('reject-filter-btn')
 
+
+// get all button
+const allFilterBtn = document.getElementById('all-filter-btn');
+const interviewFilterBtn = document.getElementById('interview-filter-btn');
+const rejectFilterBtn = document.getElementById('reject-filter-btn');
 
 const allCardSection = document.getElementById('allCards');
-const mainContainer2 = document.getElementsById('main-section')[0];
+const mainContainer2 = document.getElementsByClassName('main-section')[0];
 const filterSection = document.getElementById('filtered-section');
 
 
-
-function calculateCount() {
-    total.innerText = allCardSection.children.length
-    interviewCount.innerText = interviewList.length
-    rejectCount.innerText = rejectList.length
-
+//  COUNT 
+function calculateCount(){
+   total.innerText = allCardSection.children.length
+   interviewCount.innerText = interviewList.length
+   rejectCount.innerText = rejectList.length
 }
-calculateCount();
 
-//  button filter
-function toggleStyle(id) {
-
-    allFilterBtn.classList.remove('bg-blue-500', 'text-white')
-    interviewFilterBtn.classList.remove('bg-blue-500', 'text-white')
-    rejectFilterBtn.classList.remove('bg-blue-500', 'text-white')
-
-    allFilterBtn.classList.add('bg-white', 'text-slate-500')
-    interviewFilterBtn.classList.add('bg-white', 'text-slate-500')
-    rejectFilterBtn.classList.add('bg-white', 'text-slate-500')
+calculateCount()
 
 
+//  FILTER BUTTON STYLE 
+function toggleStyle(id){
 
-    const selected = document.getElementById(id)
-    currentStatus = id
-    console.log(selected)
+   // remove active style
+   allFilterBtn.classList.remove('bg-[#3b82f6]', 'text-white')
+   interviewFilterBtn.classList.remove('bg-[#3b82f6]', 'text-white')
+   rejectFilterBtn.classList.remove('bg-[#3b82f6]', 'text-white')
 
-    selected.classList.remove('bg-white', 'text-slate-500')
-    selected.classList.add('bg-blue-500', 'text-white')
+   // add default style
+   allFilterBtn.classList.add('bg-white', 'text-black')
+   interviewFilterBtn.classList.add('bg-white', 'text-black')
+   rejectFilterBtn.classList.add('bg-white', 'text-black')
 
-    if (id == 'all-filter-btn') {
-        allCardSection.classList.remove('hidden')
-        filterSection.classList.add('hidden')
-        document.getElementById('no-jobs').classList.add('hidden');
+   const selected = document.getElementById(id)
+   currentStatus = id
+   console.log(selected)
 
-    }
-    else if (id == 'interview-filter-btn') {
-        allCardSection.classList.add('hidden')
-        filterSection.classList.remove('hidden')
-        renderInterview()
-    }
-    else if (id == 'reject-filter-btn') {
-        allCardSection.classList.add('hidden')
-        filterSection.classList.remove('hidden')
-        renderReject()
-    
-    }
+
+   selected.classList.remove('bg-white','text-black')
+   selected.classList.add('bg-[#3b82f6]', 'text-white')
+
+   if(id == 'all-filter-btn'){
+      allCardSection.classList.remove('hidden')
+      filterSection.classList.add('hidden')
+   }
+
+   else if(id == 'interview-filter-btn'){
+      allCardSection.classList.add('hidden')
+      filterSection.classList.remove('hidden')
+      renderInterview()
+   }
+
+   else if(id == 'reject-filter-btn'){
+      allCardSection.classList.add('hidden')
+      filterSection.classList.remove('hidden')
+      renderReject()
+   }
 }
 
 
@@ -72,7 +73,7 @@ mainContainer2.addEventListener('click', function(event){
 
    if(event.target.classList.contains('interview')){
 
-      const parenNode = event.target.closest('.jobCard')
+      const parenNode = event.target.parentNode.parentNode
 
       const companyName = parenNode.querySelector('.companyName').textContent
       const jobName = parenNode.querySelector('.jobName').textContent
@@ -105,7 +106,7 @@ mainContainer2.addEventListener('click', function(event){
 
    else if(event.target.classList.contains('reject')){
 
-      const parenNode = event.target.closest('.jobCard')
+      const parenNode = event.target.parentNode.parentNode
 
       const companyName = parenNode.querySelector('.companyName').textContent
       const jobName = parenNode.querySelector('.jobName').textContent
@@ -133,109 +134,136 @@ mainContainer2.addEventListener('click', function(event){
          rejectList.push(cardInfo)
       }
 
-      if(currentStatus == "reject-filter-btn")
-         
-      
+      //if(currentStatus == "rejectFilterBtn"){
+       //  renderReject()
+     // }
 
       calculateCount()
       renderReject()
-    
    }
 
 })
 
-function renderInterview() {
-    filterSection.innerHTML = ''
 
-    // if interview is empty , then show no job message
-    if (interviewList.length === 0) {
-        document.getElementById('no-jobs').classList.remove('hidden');
-        return;
-    } else {
-        document.getElementById('no-jobs').classList.add('hidden');
-    }
+//  RENDER INTERVIEW 
+function renderInterview(){
 
-    for (let interview of interviewList) {
-        //console.log(interview);
+   filterSection.innerHTML = ''
 
-        let div = document.createElement('div')
-        div.className = 'jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200'
-        div.innerHTML = `
-         <div class="left flex-1 space-y-3">
+   for(let interview of interviewList){
+
+      let div = document.createElement('div');
+      div.className = 'jobCard bg-[#ffffff] p-6 md:flex rounded-md '
+
+      div.innerHTML = `
+         <div class="left space-y-2">
+
             <div>
-              <p class="companyName text-blue-950 font-bold">${interview.companyName}</p>
-              <p class="jobName text-slate-500">${interview.jobName}</p>
+               <p class="companyName text-[#002c5c] font-bold">
+                  ${interview.companyName}
+               </p>
+               <p class="jobName text-[#64748b]">
+                  ${interview.jobName}
+               </p>
             </div>
 
-        <p class="jobCriteria text-slate-500">${interview.jobCriteria}</p>
-
-        <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-            ${interview.statusBadge}
-        </button>
-
-        <p class="notes text-slate-500">
-        ${interview.notes}
-
-        </p>
-
-        <div class="flex gap-3 mt-4">
-            <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                Interview
-            </button>
-
-            <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                Rejected
-            </button>
-            </div>
-        `
-        filterSection.appendChild(div)
-    }
-}
-function renderReject() {
-    filterSection.innerHTML = ''
-    // if reject is empty  then show no job message
-    if (rejectList.length === 0) {
-        document.getElementById('no-jobs').classList.remove('hidden');
-        return;
-    } else {
-        document.getElementById('no-jobs').classList.add('hidden');
-    }
-
-
-    for (let reject of rejectList) {
-       // console.log(reject);
-
-        let div = document.createElement('div')
-        div.className = 'jobCard bg-white p-6 md:flex justify-between items-start rounded-md shadow border border-gray-200'
-        div.innerHTML = `
-         <div class="flex-1 space-y-3">
             <div>
-              <p class="companyName text-blue-950 font-bold">${reject.companyName}</p>
-              <p class="jobName text-slate-500">${reject.jobName}</p>
+               <p class="jobCriteria text-[#64748b]">
+                  ${interview.jobCriteria}
+               </p>
             </div>
 
-        <p class="jobCriteria text-slate-500">${reject.jobCriteria}</p>
-
-        <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-            ${reject.statusBadge}
-        </button>
-
-        <p class="notes text-slate-500">
-        ${reject.notes}
-
-        </p>
-
-        <div class="flex gap-3 mt-4">
-            <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                Interview
+            <button class="statusBadge bg-[#eef4ff] py-2 px-3 rounded-md">
+               ${interview.statusBadge}
             </button>
 
-            <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                Rejected
-            </button>
+            <p class="notes text-[#323b49]">
+               ${interview.notes}
+            </p>
+
+            <div class="flex gap-2">
+               <button class="interview bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">
+                  Interview
+               </button>
+               <button class="reject bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">
+                  Rejected
+               </button>
             </div>
-        `
-        filterSection.appendChild(div)
-    }
+
+         </div>
+      `
+
+      filterSection.appendChild(div)
+   }
 }
 
+
+//  RENDER REJECT 
+function renderReject(){
+
+   filterSection.innerHTML = ''
+
+   for(let reject of rejectList){
+
+      let div = document.createElement('div');
+      div.className = 'jobCard bg-[#ffffff] p-6 md:flex rounded-md '
+
+      div.innerHTML = `
+         <div class="left space-y-2">
+
+            <div>
+               <p class="companyName text-[#002c5c] font-bold">
+                  ${reject.companyName}
+               </p>
+               <p class="jobName text-[#64748b]">
+                  ${reject.jobName}
+               </p>
+            </div>
+
+            <div>
+               <p class="jobCriteria text-[#64748b]">
+                  ${reject.jobCriteria}
+               </p>
+            </div>
+
+            <button class="statusBadge bg-[#eef4ff] py-2 px-3 rounded-md">
+               ${reject.statusBadge}
+            </button>
+
+            <p class="notes text-[#323b49]">
+               ${reject.notes}
+            </p>
+
+            <div class="flex gap-2">
+               <button class="interview bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">
+                  Interview
+               </button>
+               <button class="reject bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">
+                  Rejected
+               </button>
+            </div>
+
+         </div>
+      `
+
+      filterSection.appendChild(div)
+   }
+}
+
+// delete button
+document.addEventListener("click", function(event){
+
+   console.log("Clicked:", event.target);
+
+   const deleteBtn = event.target.closest(".delete-btn");
+
+   if(deleteBtn){
+      console.log("Delete button detected");
+
+      const card = deleteBtn.closest(".jobCard");
+      console.log("Card found:", card);
+
+      card.style.display = "none";
+   }
+
+});

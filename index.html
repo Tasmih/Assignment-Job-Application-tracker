@@ -26,7 +26,7 @@
 </style>
 
 </head>
-<body class="bg-[#f8fafc]">
+<body class="bg-blue-50">
     <section id="header-section" class="w-[80%] mx-auto">
         <div class="pt-[60px]">
             <h1 class="text-2xl sm:text-center md:text-left font-bold text-black">Job Application Tracker</h1>
@@ -54,7 +54,7 @@
 
      
      
-     <main id="main-section" class=" main-section w-[80%] mx-auto pb-[60px]">
+     <main  class="main-section w-[80%] mx-auto pb-[60px]">
        <div id="summary" class="">
           <div class="flex justify-between pb-6">
             <p>Available Jobs</p>
@@ -72,294 +72,238 @@
     </section>
        
        <!--No jobs-->
-       <div id="no-jobs" class=" flex flex-col items-center bg-white rounded-md mb-4 py-[110px] space-y-4">
-        <img src="./images/job.png" alt="">
-        <div class="flex flex-col items-center"> <P class="text-[#002c56] font-bold">No jobs available</P>
-        <p class="text-[#64748b]">Check back soon for new job opportunities</p></div>
+       <div id="no-jobs" class=" flex flex-col items-center bg-white rounded-md mb-4 py-[110px] space-y-4 hidden">
+        <img src="./image/jobs.png" alt="">
+        <div class="flex flex-col items-center"> <P class="text-blue-950 font-bold">No jobs available</P>
+        <p class="text-slate-500">Check back soon for new job opportunities</p></div>
        
        </div>
        <!--cards-->
        <div id="allCards" class="space-y-2">
         
         <!--card-1-->
-        <div class=" jobCard bg-[#ffffff] p-6 md:flex rounded-md  ">
+        <div class=" jobCard bg-white p-6 md:flex rounded-md  ">
             <div class="left space-y-2">
                  
             <div>
-                <p class=" companyName text-[#002c5c] font-bold">Mobile First Corp</p>
-                <p class="jobName  text-[#64748b]">React Native Developer</p>
+                <p class=" companyName text-blue-950 font-bold">Mobile First Corp</p>
+                <p class="jobName  text-slate-500">React Native Developer</p>
             </div>
            
         
         <div>
-            <p class=" jobCriteria text-[#64748b]">Remote • Full-time • $130,000 - $175,000</p>
+            <p class=" jobCriteria text-slate-500">Remote • Full-time • $130,000 - $175,000</p>
         </div>
          
-        <button class=" statusBadge bg-[#eef4ff] text-[64748b] py-2 px-3 rounded-md">Not Applicable</button>
+        <button class=" statusBadge bg-blue-50 text-[64748b] py-2 px-3 rounded-md">Not Applicable</button>
 
-         <p class=" notes text-[#323b49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+         <p class=" notes text-gray-700">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 
          <div class="flex gap-2">
-            <button class="interview  bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">Interview</button> 
-             <button class="reject  bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">Rejected</button>  
+            <button class="interview  bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">Rejected</button>  
          </div></div>
-            <div class="right"> <button id="delete-btn"> <img src="./images/delete-btn.png" alt=""></button></div>
+            <div class="right"> <button class="delete-btn"> <img src="./image/btn-delete.png" alt=""></button></div>
            
        
        </div>
-            <!-- Job Card 2-->
+            
              <!--card-2-->
        
-          <div class=" jobCard bg-[#ffffff] p-6 md:flex rounded-md  ">
+          <div class=" jobCard bg-white p-6 md:flex rounded-md  ">
             <div class="left space-y-2">
                  
             <div>
-                <p class=" companyName text-[#002c5c] font-bold">WebFlow Agency</p>
-                <p class="jobName  text-[#64748b]">React Native Developer</p>
+                <p class=" companyName text-blue-950 font-bold">WebFlow Agency</p>
+                <p class="jobName  text-slate-500">React Native Developer</p>
             </div>
            
         
         <div>
-            <p class=" jobCriteria text-[#64748b]">Remote • Full-time • $130,000 - $175,000</p>
+            <p class=" jobCriteria text-slate-500">Remote • Full-time • $130,000 - $175,000</p>
         </div>
          
-        <button class=" statusBadge bg-[#eef4ff] text-[64748b] py-2 px-3 rounded-md">Not Applicable</button>
+        <button class=" statusBadge bg-blue-50 text-slate-500 py-2 px-3 rounded-md">Not Applicable</button>
 
-         <p class=" notes text-[#323b49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+         <p class=" notes text-gray-700">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 
          <div class="flex gap-2">
-            <button class="interview  bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">Interview</button> 
-             <button class="reject  bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">Rejected</button>  
+            <button class="interview  bg-white py-3 px-6 text-green-500 rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">Rejected</button>  
          </div></div>
             <div class="right">
-                 <button id="delete-btn"> <img src="./images/delete-btn.png" alt=""></button>
+                 <button class="delete-btn"> <img src="./image/btn-delete.png" alt=""></button>
                 </div>
            
        
        </div>
             <!--  Card 3-->
-             <div class=" jobCard bg-[#ffffff] p-6 md:flex rounded-md  ">
+             <div class=" jobCard bg-white p-6 md:flex rounded-md  ">
             <div class="left space-y-2">
                  
             <div>
-                <p class=" companyName text-[#002c5c] font-bold">DataViz Solutions</p>
-                <p class="jobName  text-[#64748b]">React Native Developer</p>
+                <p class=" companyName text-blue-500 font-bold">DataViz Solutions</p>
+                <p class="jobName  text-slate-500">React Native Developer</p>
             </div>
            
         
         <div>
-            <p class=" jobCriteria text-[#64748b]">Remote • Full-time • $130,000 - $175,000</p>
+            <p class=" jobCriteria text-slate-500">Remote • Full-time • $130,000 - $175,000</p>
         </div>
          
-        <button class=" statusBadge bg-[#eef4ff] text-[64748b] py-2 px-3 rounded-md">Not Applicable</button>
+        <button class=" statusBadge bg-blue-50 text-[64748b] py-2 px-3 rounded-md">Not Applicable</button>
 
-         <p class=" notes text-[#323b49]">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+         <p class=" notes text-gray-700">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 
          <div class="flex gap-2">
-            <button class="interview  bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">Interview</button> 
-             <button class="reject  bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">Rejected</button>  
+            <button class="interview  bg-white py-3 px-6 text-green-500 rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-white py-3 px-6 text-red-500rounded-md border border-red-600">Rejected</button>  
          </div></div>
-            <div class="right"> <button id="delete-btn"> <img src="./images/delete-btn.png" alt=""></button></div>
+            <div class="right"> <button class="delete-btn"> <img src="./image/btn-delete.png" alt=""></button></div>
            
        
        </div>
             <!--  Card 4-->
-            <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
-
-                <!-- Left Side -->
-                <div class="left  space-y-3">
-                    <div>
-                        <p class="companyName text-blue-950 font-bold">CloudFirst Inc</p>
-                        <p class="jobName text-slate-500">Backend Developer</p>
-                    </div>
-
-                    <p class="jobCriteria text-slate-500">Seattle, WA • Full-time • $140,000 - $190,000</p>
-
-                    <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-                        NOT APPLIED
-                    </button>
-
-                    <p class="notes text-slate-500">
-                        Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.
-                    </p>
-
-                    <div class="flex gap-3 mt-4">
-                        <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                            Interview
-                        </button>
-                        <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                            Rejected
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class="right ml-4">
-                    <button class="delete-btn">
-                        <img src="./image/btn-delete.png" alt="">
-                    </button>
-                </div>
-
+            <div class=" jobCard bg-white p-6 md:flex rounded-md  ">
+            <div class="left space-y-2">
+                 
+            <div>
+                <p class=" companyName text-blue-950 font-bold">CloudFirst Inc</p>
+                <p class="jobName  text-slate-500">React Native Developer</p>
             </div>
+           
+        
+        <div>
+            <p class=" jobCriteria text-slate-500">Remote • Full-time • $130,000 - $175,000</p>
+        </div>
+         
+        <button class=" statusBadge bg-blue-50 text-slate-500 py-2 px-3 rounded-md">Not Applicable</button>
+
+         <p class=" notes text-gray-700">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+
+         <div class="flex gap-2">
+            <button class="interview  bg-white py-3 px-6 text-green-500 rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">Rejected</button>  
+         </div></div>
+            <div class="right"> <button class="delete-btn"> <img src="./image/btn-delete.png" alt=""></button></div>
+           
+       
+       </div>
             <!--  Card 5-->
-            <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
+            <div class=" jobCard bg-white p-6 md:flex rounded-md  ">
+            <div class="left space-y-2">
+                 
+            <div>
+                <p class=" companyName text-blue-950 font-bold">Innovation Labs</p>
+                <p class="jobName  text-slate-500">React Native Developer</p>
+            </div>
+           
+        
+        <div>
+            <p class=" jobCriteria text-slate-500">Remote • Full-time • $130,000 - $175,000</p>
+        </div>
+         
+        <button class=" statusBadge bg-blue-50 text-slate-500 py-2 px-3 rounded-md">Not Applicable</button>
 
-                <!-- Left Side -->
-                <div class="left space-y-3">
-                    <div>
-                        <p class="companyName text-blue-950 font-bold">Innovation Labs</p>
-                        <p class="jobName text-slate-500">UI/UX Engineer</p>
-                    </div>
+         <p class=" notes text-gray-700">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 
-                    <p class="jobCriteria text-slate-500">Austin, TX • Full-time • $110,000 - $150,000</p>
-
-                    <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-                        NOT APPLIED
-                    </button>
-
-                    <p class="notes text-slate-500">
-                      Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.
-                    </p>
-
-                    <div class="flex gap-3 mt-4">
-                        <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                            Interview
-                        </button>
-                        <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                            Rejected
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class="right ml-4">
-                    <button id="delete-btn">
-                        <img src="./image/btn-delete.png" alt="">
-                    </button>
-                </div>
+         <div class="flex gap-2">
+            <button class="interview  bg-white py-3 px-6 text-green-500rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">Rejected</button>  
+         </div></div>
+            <div class="right"> <button class="delete-btn"> <img src="./image/btn-delete.png" alt=""></button></div>
+           
+       
+       </div>
 
             </div>
             <!--  Card 6-->
-            <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
-
-                <!-- Left Side -->
-                <div class="right  space-y-3">
-                    <div>
-                        <p class="companyName text-blue-950 font-bold">MegaCorp Solutions</p>
-                        <p class="jobName text-slate-500">JavaScript Developer</p>
-                    </div>
-
-                    <p class="jobCriteria text-slate-500">New York, NY • Full-time • $130,000 - $170,00</p>
-
-                    <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-                        NOT APPLIED
-                    </button>
-
-                    <p class="notes text-slate-500">
-                        Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.
-                    </p>
-
-                    <div class="flex gap-3 mt-4">
-                        <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                            Interview
-                        </button>
-                        <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                            Rejected
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class="left ml-4">
-                    <button class="delete-btn">
-                        <img src="./image/btn-delete.png" alt="">
-                    </button>
-                </div>
-
+            <div class=" jobCard bg-white p-6 md:flex rounded-md  ">
+            <div class="left space-y-2">
+                 
+            <div>
+                <p class=" companyName text-blue-950 font-bold">MegaCorp Solutions</p>
+                <p class="jobName  text-slate-500">React Native Developer</p>
             </div>
-            <!--  Card 7-->
-            <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
-
-                <!-- Left Side -->
-                <div class="left  space-y-3">
-                    <div>
-                        <p class="companyName text-blue-950 font-bold">StartupXYZ</p>
-                        <p class="jobName text-slate-500">Full Stack Engineer</p>
-                    </div>
-
-                    <p class="jobCriteria text-slate-500">Remote • Full-time •$120,000 - $160,000</p>
-
-                    <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-                        NOT APPLIED
-                    </button>
-
-                    <p class="notes text-slate-500">
-                       Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.
-                    </p>
-
-                    <div class="flex gap-3 mt-4">
-                        <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                            Interview
-                        </button>
-                        <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                            Rejected
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class="right ml-4">
-                    <button class="delete-btn">
-                        <img src="./image/btn-delete.png" alt="">
-                    </button>
-                </div>
-
-            </div>
-            <!-- Card 8-->
-            <div class="jobCard bg-white p-6 md:flex justify-between items-start rounded-xl shadow border border-gray-200">
-
-                <!-- Left Side -->
-                <div class="left space-y-3">
-                    <div>
-                        <p class="companyName text-blue-950 font-bold">TechCorp Industries</p>
-                        <p class="jobName text-slate-500">Senior Frontend Developer</p>
-                    </div>
-
-                    <p class="jobCriteria text-slate-500">San Francisco, CA • Full-time • $130,000 - $175,000</p>
-
-                    <button class="statusBadge bg-blue-50 py-3 px-4 text-blue-950 rounded-md inline-block">
-                        NOT APPLIED
-                    </button>
-
-                    <p class="notes text-slate-500">
-                        We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.
-                    </p>
-
-                    <div class="flex gap-3 mt-4">
-                        <button class="interview bg-white py-3 px-6 text-emerald-500 rounded-md border border-green-600">
-                            Interview
-                        </button>
-                        <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
-                            Rejected
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Right Side -->
-                <div class="right ml-4">
-                    <button class="delete-btn">
-                        <img src="./image/btn-delete.png" alt="">
-                    </button>
-                </div>
-
-            </div>
-            
-
+           
+        
+        <div>
+            <p class=" jobCriteria text-slate-500">Remote • Full-time • $130,000 - $175,000</p>
         </div>
+         
+        <button class=" statusBadge bg-blue-50 text-slate-500 py-2 px-3 rounded-md">Not Applicable</button>
 
-         </main>
-    
+         <p class=" notes text-gray-700">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
 
+         <div class="flex gap-2">
+            <button class="interview  bg-white py-3 px-6 text-green-500 rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">Rejected</button>  
+         </div></div>
+            <div class="right"> <button class="delete-btn"> <img src="./image/btn-delete.png" alt=""></button></div>
+           
+       
+       </div>                                               
+            <!--  Card 7-->
+           <div class=" jobCard bg-white p-6 md:flex rounded-md  ">
+            <div class="left space-y-2">
+                 
+            <div>
+                <p class=" companyName text-blue-950 font-bold">StartupXYZ</p>
+                <p class="jobName  text-slate-500">React Native Developer</p>
+            </div>
+           
+        
+        <div>
+            <p class=" jobCriteria text-slate-500">Remote • Full-time • $130,000 - $175,000</p>
+        </div>
+         
+        <button class=" statusBadge bg-blue-50 text-slate-500 py-2 px-3 rounded-md">Not Applicable</button>
+
+         <p class=" notes text-gray-700">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+
+         <div class="flex gap-2">
+            <button class="interview  bg-white py-3 px-6 text-green-500 rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">Rejected</button>  
+         </div></div>
+            <div class="right"> <button class="delete-btn"> <img src="./image/btn-delete.png" alt=""></button></div>
+           
+       
+       </div>
+
+            <!-- Card 8-->
+           <div class=" jobCard bg-white p-6 md:flex rounded-md  ">
+            <div class="left space-y-2">
+                 
+            <div>
+                <p class=" companyName text-blue-950 font-bold">TechCorp Industries</p>
+                <p class="jobName  text-slate-500">React Native Developer</p>
+            </div>
+           
+        
+        <div>
+            <p class=" jobCriteria text-slate-500">Remote • Full-time • $130,000 - $175,000</p>
+        </div>
+         
+        <button class=" statusBadge bg-blue-50 text-slate-500 py-2 px-3 rounded-md">Not Applicable</button>
+
+         <p class=" notes text-gray-700">Build cross-platform mobile applications using React Native. Work on products used by millions of users worldwide.</p>
+
+         <div class="flex gap-2">
+            <button class="interview  bg-white py-3 px-6 text-green-500 rounded-md border border-green-600">Interview</button> 
+             <button class="reject  bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">Rejected</button>  
+         </div></div>
+            <div class="right"> <button class="delete-btn"> <img src="./image/btn-delete.png" alt=""></button></div>
+           
+       
+       </div>
+        
+        
+        
+        
+       
+    </div>
+       
+    </main>
 
 
 
