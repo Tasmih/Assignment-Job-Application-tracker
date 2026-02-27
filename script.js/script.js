@@ -26,6 +26,15 @@ function calculateCount(){
 }
 
 calculateCount()
+// No job function
+function checkNoJobs(tabList){
+    const noJobsSection = document.getElementById('no-jobs');
+    if(tabList.length === 0){
+        noJobsSection.classList.remove('hidden'); // show
+    } else {
+        noJobsSection.classList.add('hidden'); // hide
+    }
+}
 
 
 //  FILTER BUTTON STYLE 
@@ -149,43 +158,45 @@ mainContainer2.addEventListener('click', function(event){
 function renderInterview(){
 
    filterSection.innerHTML = ''
-
+   
+   checkNoJobs(interviewList);
    for(let interview of interviewList){
+      
 
       let div = document.createElement('div');
-      div.className = 'jobCard bg-[#ffffff] p-6 md:flex rounded-md '
+      div.className = 'jobCard  bg-white p-6 md:flex rounded-md '
 
       div.innerHTML = `
          <div class="left space-y-2">
 
             <div>
-               <p class="companyName text-[#002c5c] font-bold">
+               <p class="companyName text-blue-950 font-bold">
                   ${interview.companyName}
                </p>
-               <p class="jobName text-[#64748b]">
+               <p class="jobName text-slate-500">
                   ${interview.jobName}
                </p>
             </div>
 
             <div>
-               <p class="jobCriteria text-[#64748b]">
+               <p class="jobCriteria text-slate-500">
                   ${interview.jobCriteria}
                </p>
             </div>
 
-            <button class="statusBadge bg-[#eef4ff] py-2 px-3 rounded-md">
+            <button class="statusBadge bg-blue-50 py-2 px-3 rounded-md">
                ${interview.statusBadge}
             </button>
 
-            <p class="notes text-[#323b49]">
+            <p class="notes text-slate-700">
                ${interview.notes}
             </p>
 
             <div class="flex gap-2">
-               <button class="interview bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">
+               <button class="interview bg-white py-3 px-6 text-green-500 rounded-md border border-green-600">
                   Interview
                </button>
-               <button class="reject bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">
+               <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">
                   Rejected
                </button>
             </div>
@@ -200,53 +211,38 @@ function renderInterview(){
 
 //  RENDER REJECT 
 function renderReject(){
-
    filterSection.innerHTML = ''
+   checkNoJobs(rejectList);
 
    for(let reject of rejectList){
-
       let div = document.createElement('div');
-      div.className = 'jobCard bg-[#ffffff] p-6 md:flex rounded-md '
+      div.className = 'jobCard bg-white p-6 md:flex rounded-md ';
 
       div.innerHTML = `
          <div class="left space-y-2">
 
             <div>
-               <p class="companyName text-[#002c5c] font-bold">
-                  ${reject.companyName}
-               </p>
-               <p class="jobName text-[#64748b]">
-                  ${reject.jobName}
-               </p>
+               <p class="companyName text-blue-950 font-bold">${reject.companyName}</p>
+               <p class="jobName text-slate-500">${reject.jobName}</p>
             </div>
 
             <div>
-               <p class="jobCriteria text-[#64748b]">
-                  ${reject.jobCriteria}
-               </p>
+               <p class="jobCriteria text-slate-500">${reject.jobCriteria}</p>
             </div>
 
-            <button class="statusBadge bg-[#eef4ff] py-2 px-3 rounded-md">
-               ${reject.statusBadge}
-            </button>
+            <button class="statusBadge bg-white py-2 px-3 rounded-md">${reject.statusBadge}</button>
 
-            <p class="notes text-[#323b49]">
-               ${reject.notes}
-            </p>
+            <p class="notes text-slate-500">${reject.notes}</p>
 
             <div class="flex gap-2">
-               <button class="interview bg-[#ffffff] py-3 px-6 text-[#10b981] rounded-md border border-green-600">
-                  Interview
-               </button>
-               <button class="reject bg-[#ffffff] py-3 px-6 text-[#ef4444] rounded-md border border-red-600">
-                  Rejected
-               </button>
+               <button class="interview bg-white py-3 px-6 text-green-500 rounded-md border border-green-600">Interview</button>
+               <button class="reject bg-white py-3 px-6 text-red-500 rounded-md border border-red-600">Rejected</button>
             </div>
 
          </div>
-      `
+      `;
 
-      filterSection.appendChild(div)
+      filterSection.appendChild(div);
    }
 }
 
@@ -269,7 +265,7 @@ document.addEventListener("click", function(event){
 
     card.remove(); 
     calculateCount();
-    updateJobCount();
+   
 
   
     if(currentStatus === 'interview-filter-btn') renderInterview();
